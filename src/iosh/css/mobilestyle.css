@@ -1,0 +1,19 @@
+﻿.input-capital
+{
+    text-align: left;
+}
+
+.anser-panel {
+    width: 100%;
+    padding:5px 10px 5px 10px
+}
+
+.kpi-box {
+    width: 80%;
+    text-align: right;
+}
+
+.actual-box {
+    width: 80%;
+    text-align: right;
+}

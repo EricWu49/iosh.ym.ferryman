@@ -1,0 +1,70 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Console.master.cs" Inherits="iosh.Console.Console" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>工作適能指數 - 管理控制台</title>
+    <link rel="stylesheet" type="text/css" href="../jquery-easyui-1.5.5.6/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../jquery-easyui-1.5.5.6/themes/icon.css" />
+    <link rel="stylesheet" type="text/css" href="../css/console.css" />
+    <script src="../js/jquery-1.12.1.min.js"></script>
+    <script type="text/javascript" src="../jquery-easyui-1.5.5.6/jquery.easyui.min.js"></script>
+    <script src="../js/easyui-common.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+        <div id="content-wrap">
+            <div id="top-content" class="top-wrap">
+                <div id="header" class="main-wrap">
+                    <div id="logo">
+                        <asp:Image ID="imgLogo" runat="server" ImageUrl="~/images/logo.png" />
+                    </div>
+                    <div id="banner">
+                        <span class="f32">工作適能指數 - 管理控制台</span>
+                    </div>
+                    <div id="user_content">
+                        <asp:Label ID="lblLoginUser" runat="server" Text=""></asp:Label>
+                    </div>
+                </div>
+            </div>
+<%--            <asp:Panel ID="pnlMenu" runat="server">--%>
+                <div id="menu-content" class="top-wrap" style="margin-bottom: 10px;">
+                    <div id="function-menu" class="main-wrap">
+                        <div class="easyui-panel" style="padding: 5px;">
+                            <a href="Logout.aspx" class="easyui-linkbutton" data-options="iconCls:'icon-home', plain:true">回前台</a>
+                            <a href="#" class="easyui-menubutton login-menu" data-options="menu:'#mm1',iconCls:'icon-org'">組織維護</a>
+                            <a href="#" class="easyui-menubutton login-menu" data-options="menu:'#mm2',iconCls:'icon-paper-view'">資料查詢</a>
+                            <a href="#" class="easyui-menubutton login-menu" data-options="menu:'#mm3',iconCls:'icon-excel'">資料匯出</a>
+                            <a href="#" class="easyui-menubutton login-menu" data-options="menu:'#mm4',iconCls:'icon-setting'">個人設定</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="mm1" style="width:200px;">
+                    <div onclick="javascript:window.location='PlaceReport.aspx';" data-options="iconCls:'icon-org'">公司資料維護</div>
+                    <div onclick="javascript:window.alert('功能開發中');" data-options="iconCls:'icon-org'">部門資料維護</div>
+                    <div onclick="javascript:window.alert('功能開發中');" data-options="iconCls:'icon-org'">員工資料維護</div>
+                </div>
+                <div id="mm2" style="width:200px;">
+                    <div onclick="javascript:window.alert('功能開發中');" data-options="iconCls:'icon-paper-view'">進度查詢</div>
+                    <div onclick="javascript:window.open('../ReportTest.aspx');" data-options="iconCls:'icon-paper-view'">診斷報告查詢</div>
+                </div>
+                <div id="mm3" style="width:200px;">
+                    <div onclick="javascript:window.alert('功能開發中');" data-options="iconCls:'icon-excel'">問卷結果匯出</div>
+                </div>
+                <div id="mm4" style="width:200px;">
+                    <div onclick="javascript:window.alert('功能開發中');" data-options="iconCls:'icon-setting'">變更密碼</div>
+                </div>
+            <%--</asp:Panel>--%>
+            <div id="main" class="main-wrap">
+                <form id="form1" runat="server">
+                    <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server">
+                    </asp:ContentPlaceHolder>
+                    <div style="clear: both"></div>
+                </form>
+            </div>
+        </div>
+</body>
+</html>

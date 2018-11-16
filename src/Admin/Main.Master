@@ -1,0 +1,82 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="Admin.Main" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>工作適能指數 - 後臺管理</title>
+    <link rel="stylesheet" type="text/css" href="themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="themes/icon.css" />
+    <link rel="stylesheet" type="text/css" href="css/default.css" />
+    <script src="js/jquery-1.12.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+    <script src="js/easyui-common.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+        <div id="content-wrap">
+            <div id="top-content" class="top-wrap">
+                <div id="header" class="main-wrap">
+                    <div id="logo">
+                        <asp:Image ID="imgLogo" runat="server" ImageUrl="~/images/logo.png" />
+                    </div>
+                    <div id="banner">
+                        <span class="f32">工作適能指數 - 後臺管理</span>
+                    </div>
+                    <div id="user_content">
+                        <asp:Label ID="lblLoginUser" runat="server" Text=""></asp:Label>
+                    </div>
+                </div>
+            </div>
+            <asp:Panel ID="pnlMenu" runat="server">
+                <div id="menu-content" class="top-wrap">
+                    <div id="function-menu" class="main-wrap">
+                        <div class="easyui-panel" style="padding: 5px;">
+                            <a href="#" class="easyui-menubutton" data-options="menu:'#mm1',iconCls:'icon-result'">統計報告</a>
+                            <a href="#" class="easyui-menubutton" data-options="menu:'#mm2',iconCls:'icon-excel'">資料匯出</a>
+                            <a href="#" class="easyui-menubutton" data-options="menu:'#mm3',iconCls:'icon-edit'">結果診斷</a>
+                            <a href="#" class="easyui-menubutton" data-options="menu:'#mm4',iconCls:'icon-setting'">診斷分析規則</a>
+                            <a href="#" class="easyui-menubutton" data-options="menu:'#mm5',iconCls:'icon-setting'">資源維護</a>
+                            <a href="Logout.aspx" class="easyui-linkbutton" data-options="iconCls:'icon-logout', plain:true">登出系統</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="mm1" style="width:200px;">
+                    <div onclick="javascript:window.location='PlaceReport.aspx';" data-options="iconCls:'icon-result'">工作環境統計報告</div>
+                    <div onclick="javascript:window.location='HumanReport.aspx';" data-options="iconCls:'icon-result'">人因工程統計報告</div>
+                    <div onclick="javascript:window.location='HealthReport.aspx';" data-options="iconCls:'icon-result'">健康狀況統計報告</div>
+                </div>
+                <div id="mm2" style="width:200px;">
+                    <div onclick="javascript:window.location='WIndexExport.aspx';" data-options="iconCls:'icon-excel'">工作適能指數</div>
+                    <div onclick="javascript:window.location='LifeExport.aspx';" data-options="iconCls:'icon-excel'">個人生活狀況</div>
+                    <div onclick="javascript:window.location='PlaceExport.aspx';" data-options="iconCls:'icon-excel'">工作環境危害因子</div>
+                    <div onclick="javascript:window.location='HumanExport.aspx';" data-options="iconCls:'icon-excel'">人因危害因子</div>
+                    <div onclick="javascript:window.location='HealthExport.aspx';" data-options="iconCls:'icon-excel'">健康狀況</div>
+                    <div onclick="javascript:window.location='BodyExport.aspx?id=7';" data-options="iconCls:'icon-excel'">自覺肌肉骨骼症狀</div>
+                    <div onclick="javascript:window.location='PressureExport.aspx';" data-options="iconCls:'icon-excel'">工作壓力檢測</div>
+                    <div onclick="javascript:window.location='BodyExport.aspx?id=9';" data-options="iconCls:'icon-excel'">肌肉骨骼健康評估</div>
+                </div>
+                <div id="mm3" style="width:200px;">
+                    <div onclick="javascript:window.location='BodyInput.aspx';" data-options="iconCls:'icon-edit'">肌肉骨骼健康評估</div>
+                </div>
+                <div id="mm4" style="width:200px;">
+                    <div onclick="javascript:window.location='SuggestSetting.aspx';" data-options="iconCls:'icon-tools'">個人生活狀況</div>
+                    <div onclick="javascript:window.location='HealthSetting.aspx';" data-options="iconCls:'icon-tools'">健康狀況</div>
+                </div>
+                <div id="mm5" style="width:200px;">
+                    <div onclick="javascript:window.alert('功能開發中');" data-options="iconCls:'icon-tools'">個人生活狀況</div>
+                    <div onclick="javascript:window.alert('功能開發中');" data-options="iconCls:'icon-tools'">健康狀況</div>
+                </div>
+            </asp:Panel>
+            <div id="main" class="main-wrap">
+                <form id="form1" runat="server">
+                    <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server">
+                    </asp:ContentPlaceHolder>
+                    <div style="clear: both"></div>
+                </form>
+            </div>
+        </div>
+</body>
+</html>

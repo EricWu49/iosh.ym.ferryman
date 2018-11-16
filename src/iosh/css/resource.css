@@ -1,0 +1,35 @@
+﻿.btn-body1 {
+    background-color: #9BC1E5;
+}
+
+.btn-body2 {
+    background-color: #FFBF00;
+}
+
+.btn-body3 {
+    background-color: #00AF50;
+}
+
+.btn-body4 {
+    background-color: #C35A10;
+}
+
+.btn-body5 {
+    background-color: #F7C9AB;
+}
+
+.btn-cornor {
+    border-radius: 20px;
+    border-style: outset;
+}
+
+.btn-div {
+    width: 150px;
+    height: 80px;
+    line-height: 80px;
+    color: black;
+    border-color: #ffffff;
+    text-align: center;
+    font-size:large;
+    cursor: pointer;
+}

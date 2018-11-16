@@ -1,0 +1,50 @@
+﻿#page-data-content {
+    width: 1000px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.form_input_content {
+    text-align: left;
+    width: 100%;
+    margin: 0 auto 5px auto;
+}
+
+.input_header {
+    text-align:right; 
+    width:120px; 
+}
+
+.input_content {
+    width:880px; 
+}
+
+.input_text {
+    text-align:left; 
+    float:left;
+    vertical-align: middle;
+}
+
+.form_action_button {
+    margin-right: 50px;
+    height: 21px;
+}
+
+.html-editor {
+    padding-left: 120px;
+}
+
+.left_content {
+    float: left;
+    width: 120px;
+    text-align:right;
+    padding-left: 20px;
+}
+
+.right_content {
+    float: right;
+    width: 900px;
+    text-align:left;
+    padding-left: 10px;
+    padding-right: 20px;
+}

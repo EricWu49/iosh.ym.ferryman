@@ -1,0 +1,37 @@
+﻿#page-data-content {
+    width: 1000px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.form_input_content {
+    margin-bottom:5px;
+    text-align: left;
+    width: 100%;
+}
+
+.input_header {
+    text-align:right; 
+    width:120px; 
+    /*float:left;*/
+}
+
+.input_content {
+    width:880px; 
+    /*float:left;*/
+}
+
+.input_text {
+    text-align:left; 
+    float:left;
+    vertical-align: middle;
+}
+
+.form_action_button {
+    margin-right: 50px;
+    height: 21px;
+}
+
+.html-editor {
+    padding-left: 120px;
+}

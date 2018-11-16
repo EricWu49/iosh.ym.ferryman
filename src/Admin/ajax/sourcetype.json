@@ -1,0 +1,22 @@
+﻿[
+  {
+    "value": "FILE",
+    "text": "內部檔案"
+  },
+  {
+    "value": "IMAGE",
+    "text": "內部圖片"
+  },
+  {
+    "value": "URL",
+    "text": "外部網址"
+  },
+  {
+    "value": "VIDEO",
+    "text": "Youtube影片"
+  },
+  {
+    "value": "TEXT",
+    "text": "文字說明"
+  }
+]

@@ -1,0 +1,176 @@
+﻿body {
+    font-size: 12pt;
+    font-family: '微軟正黑體Microsoft JhengHei' , '微軟正黑體 Microsoft JhengHei' , 'Microsoft JhengHei' , '微軟正黑體' ,Tahoma,Verdana,Arial,sans-serif;
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
+/* 版面配置樣式-START */
+#content-wrap {
+	width: 100%;	
+	*-margin: 0 auto;
+	position:relative; 
+	text-align: center;
+}
+
+.top-wrap {
+	width: 100%; 
+	float: left;
+	margin: 0 auto;
+    text-align: center;
+}
+
+.main-wrap {
+    width: 1096px;
+    margin: 0px auto;
+    /*float: left;*/
+}
+
+#top-content {
+	border-bottom-color: #e60012;
+	border-bottom-width: 5px;
+	border-bottom-style: solid;
+	background-color: #0f0f0f;
+	color: #ffffff;
+     height: 75px;
+	/* -display:inline;
+	-vertical-align: middle;
+	-height: 18px; */
+	/*margin: 5px;*/
+}
+
+#header {
+    /*float: left;*/
+    height: 75px;
+    margin-top:10px;
+}
+
+#header #logo {
+	float: left;
+	width: 200px;
+    height: 65px;
+	margin-left: 2px;
+	/*margin-top: 10px;*/
+}
+
+#header #banner {
+	float: left;
+	width: 600px;
+    height: 50px;
+	margin-right: 2px;
+	padding-left: 5px;
+	clear: none;
+	/*margin-top: 10px;*/
+	padding-bottom: 20px;
+    text-align: center;
+}
+
+#header #user_content {
+	float: right;
+	width: 200px;
+    height: 50px;
+	margin-left: 5px;
+	/*margin-top: 10px;*/
+    text-align: right;
+    vertical-align:bottom;
+}
+
+#menu-content {
+    /*background-color: #cccccc;*/
+    margin-top: 2px;
+}
+
+#function-menu {
+    text-align: center;
+}
+
+    #function-menu .panel {
+        border: none;
+
+    }
+
+#main {
+	/*margin: 0 auto;*/
+	padding-top: 10px;
+	padding-bottom: 30px;
+	text-align: center;
+}
+
+#main .panel {
+	margin: 0 auto;
+}
+
+#left-content {
+	width: 250px;
+	height: 420px;
+	float: left;
+	margin-right: 10px;
+	border-style: solid;
+	border-width: 3px;
+	border-color: #C0C0C0;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#right-content {
+	width: 820px;
+	float: right;
+	margin-left: 10px;
+	margin-right: 0px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#bottom-content {
+	height: 30px;
+	border-top-color: #2A2C2D;
+	border-top-width: 10px;
+	border-top-style: solid;
+	background-color: #0f0f0f;
+	padding-top: 7px;
+	-bottom:0;
+	-left:0;
+	position:absolute;
+	-position: fixed;
+}
+
+#footer {
+}
+
+#copyright {
+	width: 90%;  /* 980px; */
+	height:30px;
+	margin: 2px auto;
+	-line-height:58px;
+	color:#ffffff;
+	text-align: center; 
+}
+/* 版面配置樣式-END */
+
+/* 字型樣式 */
+.f32 {
+    font-size: 32pt;
+}
+
+.f24 {
+    font-size: 24pt;
+}
+
+.f16 {
+    font-size: 16pt;
+}
+
+/* 多行的儲存格 */
+.multi_text_cell
+{
+    table-layout: fixed;
+    word-break: break-all; 
+    word_wrap: break-word;
+}
+
+/* 紅色方塊清單圖示 */
+.reddot-list
+{
+    list-style-image:url("images/red-dot.gif");
+}
