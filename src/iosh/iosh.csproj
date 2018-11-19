@@ -101,37 +101,80 @@
     <Content Include="Console\Default.aspx" />
     <Content Include="Console\Logout.aspx" />
     <Content Include="Console\NewCompany.aspx" />
+    <Content Include="css\body01.css" />
+    <Content Include="css\body02.css" />
+    <Content Include="css\body03.css" />
+    <Content Include="css\body030.css" />
+    <Content Include="css\body031.css" />
+    <Content Include="css\body032.css" />
+    <Content Include="css\bodyreport.css" />
+    <Content Include="css\bodysuggest.css" />
+    <Content Include="css\button.css" />
     <Content Include="css\console.css" />
+    <Content Include="css\header.css" />
+    <Content Include="css\human01.css" />
+    <Content Include="css\human02.css" />
+    <Content Include="css\humanfinish.css" />
     <Content Include="css\jquery-ui.min.css" />
     <Content Include="css\medicio.css" />
     <Content Include="css\nexus.css" />
+    <Content Include="css\profile.css" />
     <Content Include="css\resource.css" />
     <Content Include="css\responsive.css" />
+    <Content Include="css\Survey_body.css" />
+    <Content Include="css\title.css" />
     <Content Include="demo.html" />
     <Content Include="Global.asax" />
     <Content Include="HealthFinish.aspx" />
     <Content Include="Human01.aspx" />
     <Content Include="Human02.aspx" />
     <Content Include="HumanFinish.aspx" />
+    <Content Include="images\bg.jpg" />
+    <Content Include="images\bg.png" />
+    <Content Include="images\bg_dot.png" />
     <Content Include="images\blue.png" />
-    <Content Include="images\body1.png" />
-    <Content Include="images\body2.png" />
-    <Content Include="images\body3.png" />
-    <Content Include="images\body4.png" />
-    <Content Include="images\body5.png" />
+    <Content Include="images\blue.svg" />
+    <Content Include="images\body_report_img.svg" />
+    <Content Include="images\bottom_bg.png" />
+    <Content Include="images\btn_icon_next.svg" />
+    <Content Include="images\btn_icon_pre.svg" />
+    <Content Include="images\btn_icon_print.svg" />
+    <Content Include="images\btn_icon_srch.png" />
+    <Content Include="images\btn_icon_srch.svg" />
+    <Content Include="images\btn_icon_write.png" />
+    <Content Include="images\btn_icon_write.svg" />
     <Content Include="images\green.png" />
+    <Content Include="images\green.svg" />
+    <Content Include="images\header_bg.png" />
     <Content Include="images\Image.png" />
+    <Content Include="images\input_check.svg" />
     <Content Include="images\LineId.png" />
+    <Content Include="images\list-icon-vedio.svg" />
+    <Content Include="images\list_check.svg" />
+    <Content Include="images\list_check_blue.svg" />
     <Content Include="images\loading.gif" />
     <Content Include="images\pdf.gif" />
+    <Content Include="images\profile_resume_img.svg" />
     <Content Include="images\red-dot.gif" />
     <Content Include="images\blue-dot.gif" />
     <Content Include="images\404.png" />
     <Content Include="images\logo.jpg" />
     <Content Include="images\red.png" />
+    <Content Include="images\red.svg" />
+    <Content Include="images\survey_body_img_muscle.png" />
+    <Content Include="images\survey_body_img_muscle.svg" />
+    <Content Include="images\Survey_Body_title_bg.png" />
+    <Content Include="images\title1_line_black.png" />
+    <Content Include="images\title1_line_black.svg" />
+    <Content Include="images\title1_line_blue.svg" />
+    <Content Include="images\title_bg_bodysuggest.png" />
+    <Content Include="images\title_bg_report.png" />
+    <Content Include="images\title_bg_s.png" />
+    <Content Include="images\title_bg_survey.png" />
     <Content Include="images\url.png" />
     <Content Include="images\video.png" />
     <Content Include="images\yellow.png" />
+    <Content Include="images\yellow.svg" />
     <Content Include="jquery-easyui-1.5.5.6\changelog.txt" />
     <Content Include="jquery-easyui-1.5.5.6\easyloader.js" />
     <Content Include="jquery-easyui-1.5.5.6\jquery.easyui.min.js" />
@@ -1086,6 +1129,7 @@
     <Content Include="SurveyPage.aspx" />
     <Content Include="SurveyReport.aspx" />
     <Content Include="SurveyResult.aspx" />
+    <Content Include="Survey_Body.aspx" />
     <Content Include="test.html" />
     <Content Include="UserRegister.aspx" />
     <Content Include="UserVerify.aspx" />
@@ -1175,6 +1219,20 @@
     </Compile>
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Survey.aspx.cs">
+      <DependentUpon>Survey.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Survey.aspx.designer.cs">
+      <DependentUpon>Survey.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Survey_Body.aspx.cs">
+      <DependentUpon>Survey_Body.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Survey_Body.aspx.designer.cs">
+      <DependentUpon>Survey_Body.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserRegister.aspx.cs">
       <DependentUpon>UserRegister.aspx</DependentUpon>
@@ -1415,13 +1473,6 @@
     </Compile>
     <Compile Include="Suggest.aspx.designer.cs">
       <DependentUpon>Suggest.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Survey.aspx.cs">
-      <DependentUpon>Survey.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Survey.aspx.designer.cs">
-      <DependentUpon>Survey.aspx</DependentUpon>
     </Compile>
     <Compile Include="SurveyFinish.aspx.cs">
       <DependentUpon>SurveyFinish.aspx</DependentUpon>

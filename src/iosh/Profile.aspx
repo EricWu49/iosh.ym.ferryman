@@ -6,6 +6,8 @@
     <script type="text/javascript" src="js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="js/additional-methods.min.js"></script>
     <script type="text/javascript" src="js/messages_zh_TW.min.js"></script>
+    <script type="text/javascript" src="js/dotnet.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/profile.css"/>
     <style type="text/css">
         .option-item label
         {
@@ -19,31 +21,32 @@
             font-style:italic;
         }
     </style>
-    <script type="text/javascript">
-        $( function() {
-            $("#progressbar").progressbar({
-                value: $('#hidProgress').val()
-            });
-        });
-    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContentPlaceHolder" runat="server">
-    <div class="row" style="margin-top: 10px;">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="table-responsive">
-        <asp:Table ID="fmPageTable" ClientIDMode="Static" runat="server">
-        </asp:Table>
-        <asp:HiddenField ID="hidResult" ClientIDMode="Static" runat="server" />
+   	<div class="title1 row">
+            <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h2>個人基本資料</h2>
+            </div>
     </div>
+    <img class="pofile_img" src="images/profile_resume_img.svg" />
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="table-responsive">
+                <asp:Table ID="fmPageTable" ClientIDMode="Static" runat="server" CssClass="profile_table col-md-11 col-md-offset-1">
+                </asp:Table>
+                <asp:HiddenField ID="hidResult" ClientIDMode="Static" runat="server" />
+            </div>
         </div>
     </div>
-    <asp:HiddenField ID="hidProgress" ClientIDMode="Static" runat="server" />
+<%--    <asp:HiddenField ID="hidProgress" ClientIDMode="Static" runat="server" />--%>
     <div class="row" style="margin-top: 10px;">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align:center;">
-            <asp:Button ID="btnSubmit" CssClass="btn btn-primary" Width="200" Height="30" ClientIDMode="Static" runat="server" Text="下一頁" OnClick="btnSubmit_Click" />
-            <asp:Label ID="lblSurveyPage" runat="server" Text="" Visible="false"></asp:Label>
+            <div class="btn-next">
+                <asp:Button ID="btnSubmit" CssClass="btn btn-primary col-md-3 col-sm-6 col-xs-12" ClientIDMode="Static" runat="server" Text="下一頁" OnClick="btnSubmit_Click" />
+            </div>
         </div>
     </div>
+            <asp:Label ID="lblSurveyPage" runat="server" Text="" Visible="false"></asp:Label>
     <script type="text/javascript" >
         <asp:Literal id="litValidator" runat="server"></asp:Literal>
 

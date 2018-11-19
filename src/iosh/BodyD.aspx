@@ -6,6 +6,7 @@
     <script type="text/javascript" src="js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="js/additional-methods.min.js"></script>
     <script type="text/javascript" src="js/messages_zh_TW.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/body03.css"/>
     <style type="text/css">
         .option-item label
         {
@@ -21,53 +22,66 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContentPlaceHolder" runat="server">
-    <div class="page-header">
-        <h3 class="bg-primary">三、基礎動作控制篩檢</h3>
-        <p class="text-info">接下來請您參考圖片及文字說明進行下列動作的檢測</p>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="title1 row">
+                <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <h2>繼續填寫</h2>
+                </div>
+            </div>
+            <div class="box1">
+                <div class="title2 page-header">
+                    <h3 class="bg-primary">三、基礎動作控制篩檢</h3>
+                </div>
+                <p class="text-hint text-info">接下來請您參考圖片及文字說明進行下列動作的檢測</p>
+                <asp:Repeater ID="Repeater1" runat="server" OnItemDataBound="Repeater1_ItemDataBound">
+                    <ItemTemplate>
+                        <p>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="title3 bg-info">
+                                    <asp:Label ID="lblQuestion" runat="server" Text='<%# Eval("QTitle")%>'></asp:Label>
+                                </div>
+                            </div>
+                        <div class="row box-border-btm">
+                            <div class="col-md-3 col-sm-3  col-xs-12" style="text-align:center;">
+                                <asp:Image ID="imgMotion" runat="server" ImageUrl='<%# Eval("MotionPhoto", "~/object/images/motion/{0}") %>' />
+                            </div>
+                            <div class="col-md-8 col-sm-9">
+                                <div class="row">
+                                    <div class="test_wording col-xs-12" style="text-align:left;">
+	                                    <span class="test_title">測試姿勢：</span><asp:Label ID="Label1" runat="server" Text='<%# Eval("Posture")%>'></asp:Label><br/>
+	                                    <span class="test_title">測試動作：</span><asp:Label ID="Label2" runat="server" Text='<%# Eval("Action")%>'></asp:Label><br/>
+	                                    <span class="test_title">動作標準：</span><asp:Label ID="Label3" runat="server" Text='<%# Eval("Standard")%>'></asp:Label><br />
+                                        <span class="test_title">請選擇測試結果：</span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <asp:RadioButtonList ID="rdbOption" runat="server" ClientIDMode="AutoID" CssClass="option-item" RepeatDirection="Vertical"  RepeatLayout="Flow" QuestionID='<%# Eval("QuestionID")%>'>
+                                        <asp:ListItem Value="10">動作達標準，不會痠痛</asp:ListItem>
+                                        <asp:ListItem Value="01">動作達標準，會痠痛</asp:ListItem>
+                                        <asp:ListItem Value="02">動作未達標準，不會痠痛</asp:ListItem>
+                                        <asp:ListItem Value="03">動作未達標準，會痠痛</asp:ListItem>
+                                    </asp:RadioButtonList>
+                                </div>
+                            </div>
+                        </div>
+                        </p>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+        </div>
     </div>
-    <asp:Repeater ID="Repeater1" runat="server" OnItemDataBound="Repeater1_ItemDataBound">
-        <ItemTemplate>
-            <div class="row" style="margin-top: 10px;">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="bg-info">
-                        <asp:Label ID="lblQuestion" runat="server" Text='<%# Eval("QTitle")%>'></asp:Label>
-                    </div>
-                </div>
-            </div>
-            <div class="row" style="margin-top: 10px;">
-                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" style="text-align:center;">
-                    <asp:Image ID="imgMotion" runat="server" ImageUrl='<%# Eval("MotionPhoto", "~/object/images/motion/{0}") %>' />
-                </div>
-                <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12" style="text-align:left;">
-                    <div class="row" style="margin-top: 10px;">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-success">
-	                        <span>測試姿勢：</span><asp:Label ID="Label1" runat="server" Text='<%# Eval("Posture")%>'></asp:Label><br/>
-	                        <span>測試動作：</span><asp:Label ID="Label2" runat="server" Text='<%# Eval("Action")%>'></asp:Label><br/>
-	                        <span>動作標準：</span><asp:Label ID="Label3" runat="server" Text='<%# Eval("Standard")%>'></asp:Label>
-                        </div>
-                    </div>
-                    <div class="row" style="margin-top: 10px;">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-info">
-                            <span>請選擇測試結果：</span><br />
-                            <asp:RadioButtonList ID="rdbOption" runat="server" ClientIDMode="AutoID" CssClass="option-item" RepeatDirection="Vertical"  RepeatLayout="Flow" QuestionID='<%# Eval("QuestionID")%>'>
-                                <asp:ListItem Value="10">動作達標準，不會痠痛</asp:ListItem>
-                                <asp:ListItem Value="01">動作達標準，會痠痛</asp:ListItem>
-                                <asp:ListItem Value="02">動作未達標準，不會痠痛</asp:ListItem>
-                                <asp:ListItem Value="03">動作未達標準，會痠痛</asp:ListItem>
-                            </asp:RadioButtonList>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </ItemTemplate>
-    </asp:Repeater>
     <asp:Label ID="lblPageNo" runat="server" Text="5" Visible="false" ></asp:Label>
     <div class="row" style="margin-top: 10px;">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align:center;">
-            <button type="button" class="btn btn-success" style="width: 200px; height: 30px;" onclick="javascript: history.go(-1);">上一頁</button>
+            <div class="btn-pre">
+                <button type="button" class="btn btn-success col-md-6 col-sm-6 col-xs-12" onclick="javascript: history.go(-1);">上一頁</button>
+            </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align:center;">
-            <asp:Button ID="btnSubmit" CssClass="btn btn-primary" Width="200" Height="30" ClientIDMode="Static" runat="server" Text="下一頁" OnClick="btnSubmit_Click" />
+            <div class="btn-next ">
+                <asp:Button ID="btnSubmit" CssClass="btn btn-primary col-md-6 col-sm-6 col-xs-12" ClientIDMode="Static" runat="server" Text="下一頁" OnClick="btnSubmit_Click" />
+            </div>
         </div>
     </div>
     <script type="text/javascript" >

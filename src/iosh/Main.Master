@@ -15,6 +15,11 @@
     <link rel="stylesheet" type="text/css" href="css/pcstyle.css" media="screen and (min-width: 993px)"  />
     <link rel="stylesheet" type="text/css" href="css/padstyle.css" media="screen and (min-width: 768px) and (max-width: 992px)"  />
     <link rel="stylesheet" type="text/css" href="css/mobilestyle.css" media="screen and (max-width: 767px)"  />
+	<!-- UI/UX Design -->
+    <link rel="stylesheet" type="text/css" href="css/header.css"/>
+    <link rel="stylesheet" type="text/css" href="css/button.css"/>
+    <link rel="stylesheet" type="text/css" href="css/title.css"/>
+	<!-- UI/UX Design -->
     <script src="js/jquery-1.12.1.min.js"></script>
     <!-- 避免EasyUI ValidateBox的Tooltip與Bootstrap tooltip衝突，先載入Bootstrap，再載入EasyUI -->
     <script src="js/bootstrap.min.js"></script>
@@ -40,59 +45,44 @@
     <form id="form1" runat="server">
     <nav class="navbar navbar-default" role="navigation">
         <div class="container">
-            <div class="navbar-header" style="width:100%; height: 70px;">
+            <div class="navbar-header" style="width:100%; height: 79px;">
                 <button class="navbar-toggle collapsed" aria-expanded="false" aria-controls="navbar" type="button" data-toggle="collapse" data-target="#navbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><img src="images/logo.jpg" alt="勞動部勞動及職業安全衛生研究所" /></a>
+                <a class="navbar-brand" href="#"><img src="images/logo.png" alt="勞動部勞動及職業安全衛生研究所" /></a>
                 <div class="nav navbar-nav navbar-right" style="text-align: right; vertical-align: middle; margin-top: 15px;">
                     <asp:Panel ID="UserPanel" runat="server" >
                         <asp:Label ID="lblUserName" runat="server" Text="" ></asp:Label><span>您好</span><a href="Logout.aspx" style="margin-left: 10px;">登出</a>
                     </asp:Panel>
-                    <div class="font-setting" style="">
-                            <span>字型大小設定：</span>
-                            <a class="jfontsize-button link-button" id="jfontsize-m2" href="#">縮小</a>
-                            <a class="jfontsize-button link-button" id="jfontsize-d2" href="#">標準</a>
-                            <a class="jfontsize-button link-button" id="jfontsize-p2" href="#">放大</a>
-                    </div>
                 </div>
             </div>
             <div class="navbar-collapse collapse" id="navbar" aria-expanded="false" style="height: 1px;">
                 <ul class="nav navbar-nav">
-                    <li id="nav_home"><a href="Default.aspx">首頁</a></li>
-<%--                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">勞動部網站<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li id="nav_mol"><a href="http://www.mol.gov.tw/" target="_blank">勞動部</a></li>
-                            <li id="nav_ilosh"><a href="http://www.ilosh.gov.tw/" target="_blank">勞動部勞動及職業安全衛生研究所</a></li>
-                        </ul>
-                    </li>--%>
-<%--                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">心理量表檢測系統平台<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li id="nav_owtest"><a href="http://meeting.ilosh.gov.tw/overwork/owTest/owTest.aspx" target="_blank">過勞量表檢測</a></li>
-                            <li id="nav_ptest"><a href="http://meeting.ilosh.gov.tw/overwork/pTest/pTest.aspx" target="_blank">簡易工作壓力量表檢測</a></li>
-                        </ul>
-                    </li>--%>
-                    <li id="nav_waindex2"><a href="Survey.aspx?id=2">工作適能指數評估</a></li>
+                    <li id="nav_home" class="col-md-1-5"><a href="Default.aspx">首頁</a></li>
+                    <li id="nav_waindex2" class="col-md-1-5"><a href="Survey.aspx?id=2">工作適能指數評估</a></li>
                     <li id="nav_waindex6"><a href="Survey.aspx?id=6">人因危害因子調查</a></li>
-                    <%--<li id="nav_waindex7"><a href="Survey.aspx?id=7">自覺肌肉骨骼症狀評估</a></li>--%>
-                    <%--<li id="nav_waindex9"><a href="Survey.aspx?id=9">肌肉骨骼健康評估</a></li>--%>
-                    <li id="nav_waindex10"><a href="Survey.aspx?id=10">肌肉骨骼健康評估</a></li>
-                    <li id="nav_resource"><a href="Resource.aspx">肌肉骨骼保健運動影片</a></li>
+                    <li id="nav_waindex10" class="col-md-1-5"><a href="Survey_Body.aspx?id=10">肌肉骨骼健康評估</a></li>
+                    <li id="nav_resource" class="col-md-1-5"><a href="Resource.aspx">肌肉骨骼保健運動影片</a></li>
                 </ul>
             </div>
-        </div> 
+			 <div class="font-setting" style="">
+					<span>字型大小設定：</span>
+					<a class="jfontsize-button link-button" id="jfontsize-m2" href="#">縮小</a>
+					<a class="jfontsize-button link-button" id="jfontsize-d2" href="#">標準</a>
+					<a class="jfontsize-button link-button" id="jfontsize-p2" href="#">放大</a>
+			</div>
+		</div> 
     </nav>
-    <div class="container background-white" role="main">
+    <div id="master-container" class="container-ilosh container background-white" role="main">
         <asp:ContentPlaceHolder ID="FormContentPlaceHolder" runat="server">
         
         </asp:ContentPlaceHolder>
-        <asp:HiddenField ID="hidMenuItem" ClientIDMode="Static" Value="" runat="server" />
+        <div class="bottom_row row"></div>
     </div>
+    <asp:HiddenField ID="hidMenuItem" ClientIDMode="Static" Value="" runat="server" />
     </form>
     <script type="text/javascript" >
         $(document).ready(function () {

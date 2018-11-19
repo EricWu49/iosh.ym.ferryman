@@ -105,11 +105,12 @@ namespace iosh
                 if (myData != null)
                 {
                     litResource = new LiteralControl();
-                    litResource.Text = "<h4 style=\"color:#0022ff\">自評結果：" + myData.Rows[0]["EvaluateResult"].ToString() + "</h4>";
+                    litResource.Text = "<div class=\"row suggest_box\"><div class=\"col-md-3\"><div class=\"suggest_title\">自評結果：</div><span>" + myData.Rows[0]["EvaluateResult"].ToString() + "</span></div>";
                     if (myData.Rows[0]["EvaluateSuggest"].ToString().Trim() != "")
                     {
-                        litResource.Text += "<p><span style=\"color:#0022ff\">相關建議：</span>" + myData.Rows[0]["EvaluateSuggest"].ToString() + "</p>";
+                        litResource.Text += "<div class=\"col-md-9\"><div class=\"suggest_title\">相關建議：</div>" + myData.Rows[0]["EvaluateSuggest"].ToString() + "</div>";
                     }
+                    litResource.Text += "</div>";
                     pPlaceHolder.Controls.Add(litResource);
                 }
                 else

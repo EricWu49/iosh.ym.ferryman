@@ -25,6 +25,10 @@ namespace iosh
             }
             else
             {
+                if (hidSetID.Value!="")
+                {
+                    Load_Resource(hidSetID.Value);
+                }
                 hidSetID.Value = "";
             }
         }
@@ -56,6 +60,11 @@ namespace iosh
             }
         }
 
+        /// <summary>
+        /// 查詢
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnQuery_Click(object sender, EventArgs e)
         {
             DBClass DB = new DBClass(General.DataBaseType.MSSQL, "DB");
@@ -82,18 +91,21 @@ namespace iosh
                     return;
                 }
 
-                strSQL = "Select VideoName, Description, YoutubeID From BodyResource ";
+                //strSQL = "Select VideoName, Description, YoutubeID From BodyResource ";
+                strSQL = "Select ResourceName as VideoName, Description, ResourcePath as YoutubeID " +
+                         "From EvaluateResource ";
                 strJoin = "Where ";
                 if (strBody!="")
                 {
                     strSQL = strSQL + strJoin + "BodyCode=@Code ";
-                    DB.AddSqlParameter("@Code", strBody);
+                    DB.AddSqlParameter("@Code", Convert.ToInt32(strBody));
                     strJoin = "And ";
                 }
 
                 if (strKeyword!="")
                 {
-                    strSQL = strSQL + strJoin + "(VideoName Like @Word Or Description Like @Word) ";
+                    //strSQL = strSQL + strJoin + "(VideoName Like @Word Or Description Like @Word) ";
+                    strSQL = strSQL + strJoin + "(ResourceName Like @Word Or Description Like @Word) ";
                     DB.AddSqlParameter("@Word", "%" + strKeyword + "%");
                 }
                 myData = DB.GetDataTable(strSQL);
@@ -110,6 +122,10 @@ namespace iosh
             }
         }
 
+        /// <summary>
+        /// 取得套餐影片
+        /// </summary>
+        /// <param name="setID"></param>
         private void Load_Resource(string setID)
         {
             DBClass DB = new DBClass(General.DataBaseType.MSSQL, "DB");
@@ -140,6 +156,11 @@ namespace iosh
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType==ListItemType.Header)
@@ -180,6 +201,10 @@ namespace iosh
                         myLabel.Visible = false;
                     }
                 }
+            }
+            else
+            {
+
             }
         }
     }

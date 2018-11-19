@@ -256,6 +256,7 @@ namespace iosh
             {
                 DataRowView myRow = (System.Data.DataRowView)e.Item.DataItem;
                 RadioButtonList objRadio = (RadioButtonList)e.Item.FindControl("rdbOption");
+                RadioButtonList rdbPosition = (RadioButtonList)e.Item.FindControl("rdbPosition");
                 string strRule = objRadio.UniqueID + ":{ required:true }";
                 if (litRule.Text != "")
                 {
@@ -275,12 +276,24 @@ namespace iosh
                     {
                         if (myItem.Value == "0")
                         {
-                            myItem.Attributes.Add("onclick", "javascript: showit(" + myRow["QuestionID"].ToString() + ",false);");
+                            myItem.Attributes.Add("onclick", "javascript: showit(this, " + myRow["QuestionID"].ToString() + ",false);");
                         }
                         else
                         {
-                            myItem.Attributes.Add("onclick", "javascript: showit(" + myRow["QuestionID"].ToString() + ",true);");
+                            myItem.Attributes.Add("onclick", "javascript: showit(this, " + myRow["QuestionID"].ToString() + ",true);");
                         }
+                    }
+
+                    foreach (ListItem myPosition in rdbPosition.Items)
+                    {
+                        myPosition.Attributes.Add("onclick", "javascript: item_checked(this);");
+                    }
+                }
+                else
+                {
+                    foreach (ListItem myItem in objRadio.Items)
+                    {
+                        myItem.Attributes.Add("onclick", "javascript: item_checked(this);");
                     }
                 }
             }

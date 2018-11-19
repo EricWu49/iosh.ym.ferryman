@@ -130,13 +130,13 @@ namespace iosh
                 {
                     clsQuestion = new QuestionClass(ref DB);
 
-                    fmPageTable.Style.Add("width", "100%");
+                    //fmPageTable.Style.Add("width", "100%");
 
                     for (int i = 0; i < myData.Rows.Count; i++)
                     {
                         QRow = new TableRow();
                         QCell = new TableCell();
-                        QCell.Style.Add("padding", "3px");
+                        //QCell.Style.Add("padding", "3px");
                         QCell.Style.Add("width", "100%");
                         switch (Convert.ToInt32(myData.Rows[i]["QType"]))
                         {

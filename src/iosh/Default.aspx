@@ -70,3 +70,6 @@
     </div>
     </asp:Panel>
 </asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="JScriptPlaceHolder" runat="server" >
+    <asp:Literal ID="litScript" runat="server"></asp:Literal>
+</asp:Content>

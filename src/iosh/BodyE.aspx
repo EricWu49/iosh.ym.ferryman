@@ -7,6 +7,7 @@
     <script type="text/javascript" src="js/additional-methods.min.js"></script>
     <script type="text/javascript" src="js/messages_zh_TW.min.js"></script>
     <script type="text/javascript" src="js/dotnet.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/body031.css"/>
     <style type="text/css">
         .option-item label
         {
@@ -22,14 +23,19 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContentPlaceHolder" runat="server">
-    <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <asp:Label ID="lblQuestion" runat="server" Text=""></asp:Label>
+        <div class="title1 row">
+            <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h2>繼續填寫</h2>
+            </div>
+        </div>
+   <div class="box1 row">
+        <div class="title2 ppage-header">
+            <h3 class="bg-primary"><asp:Label ID="lblQuestion" runat="server" Text=""></asp:Label></h3>
             <asp:Label ID="lblQID" runat="server" Text="" Visible="false"></asp:Label>
         </div>
         <asp:Repeater ID="Repeater1" runat="server" OnItemDataBound="Repeater1_ItemDataBound">
             <ItemTemplate>
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="col-md-3 col-xs-6" style="margin-top: 15px;">
                     <asp:RadioButton ID="rdbAnswer" runat="server" GroupName="answer-group" Width="200px" Text='<%# Eval("SelectOption")%>' value='<%# Eval("OptionID")%>' OptionID='<%# Eval("OptionID")%>' />
                 </div>
             </ItemTemplate>
@@ -42,12 +48,16 @@
             </ItemTemplate>
         </asp:Repeater>
     </div>
-    <div class="row" style="margin-top: 10px;">
+    <div class="row" style="margin-top: 55px;">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align:center;">
-            <button type="button" class="btn btn-success" style="width: 200px; height: 30px;" onclick="javascript: history.go(-1);">上一頁</button>
+            <div class="btn-pre">
+                <button type="button" class="btn btn-success col-md-6 col-sm-6 col-xs-12" onclick="javascript: history.go(-1);">上一頁</button>
+            </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align:center;">
-            <asp:Button ID="btnSubmit" CssClass="btn btn-primary" Width="200" Height="30" ClientIDMode="Static" runat="server" Text="下一頁" OnClick="btnSubmit_Click" />
+            <div class="btn-next ">
+                <asp:Button ID="btnSubmit" CssClass="btn btn-primary col-md-6 col-sm-6 col-xs-12" ClientIDMode="Static" runat="server" Text="下一頁" OnClick="btnSubmit_Click" />
+            </div>
         </div>
     </div>
 </asp:Content>

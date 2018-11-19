@@ -62,6 +62,8 @@ namespace iosh
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            string strID = "";
+
             if (!IsPostBack)
             {
                 UserPanel.Visible = false;
@@ -76,9 +78,14 @@ namespace iosh
                         Session["NAV_INDEX"] = "nav_resource";
                         break;
                     case "/survey.aspx":        /// 各種調查
-                        string strID = Request.Url.Query;
+                        strID = Request.Url.Query;
                         strID = strID.Replace("?id=", "");
                         Session["NAV_INDEX"]= "nav_waindex" + strID;
+                        break;
+                    case "/survey_body.aspx":        /// 自覺肌肉骨骼
+                        strID = Request.Url.Query;
+                        strID = strID.Replace("?id=", "");
+                        Session["NAV_INDEX"] = "nav_waindex" + strID;
                         break;
                     case "/userverify.aspx":
                         Session["NAV_INDEX"] = "nav_home";

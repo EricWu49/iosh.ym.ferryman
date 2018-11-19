@@ -30,6 +30,13 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContentPlaceHolder" runat="server">
+        <div class="title1 row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div>
+                  <h2>自評結果</h2>
+                </div>
+            </div>
+        </div>
     <div class="row" style="margin-top: 10px;">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="page-header"><h3>親愛的朋友，感謝您填寫完肌肉骨骼健康評估，您的評估結果如下：</h3></div>

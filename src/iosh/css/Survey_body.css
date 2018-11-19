@@ -1,0 +1,87 @@
+.container-ilosh {
+    max-width: 1200px;
+    padding: 0 15px;
+}
+/*title背景圖*/
+.title1.row {
+    background: url(../images/title_bg_survey.png);
+    background-size: auto 100%;
+    min-height: 204px;
+}
+.container-ilosh .box1 li {
+    list-style-type: none;
+    font-size: 16px;
+    color: #2a7e9a;
+}
+.container-ilosh .box1 li:before {
+    content: "";
+    width: 11px;
+    height: 11px;
+    display: inline-block;
+    background-image: url(../images/list_check_blue.svg);
+    background-repeat: no-repeat;
+    margin-right: 5px;
+}
+.box1 img {
+    min-width: 93px;
+    float: left;
+    display: inline-block;
+}
+.box1 ul {
+    display: inline-block;
+}
+.box1 > div {
+    margin: 23px 0 46px;
+}
+.button_ilosh button {
+    border: none;
+    background: transparent;
+    margin-bottom: 7px;
+}
+.button_ilosh > button > input {
+    border-radius: 24px;
+    height: 48px;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 34px;
+    text-shadow: none;
+
+}
+.btn-primary {
+     background: -webkit-linear-gradient(left, #005a92 0%,#2a7e9a 100%);
+     background: -ms-linear-gradient(left, #005a92 0%,#2a7e9a 100%);
+}
+.btn-info {
+    border: 2px solid #005a92;
+    color: #005a92;
+    background-color: #ffffff;
+    background-image: none;
+}
+.btn-info:hover, .btn-info:focus {
+    background-color: #ffffff;
+    background-position: inherit;
+    color: #005a92;
+    border-color: #005a92;
+}
+img.btn_icon {
+    position: absolute;
+    right: calc( 50% - 71px );
+    width: 20px;
+    top: 14px;
+}
+.bottom_row.row {
+    height: 82px;
+    background: url(../images/bottom_bg.png) no-repeat;
+    background-position: bottom;
+}
+
+
+
+@media (max-width: 767px) {
+    .box1 img {
+        display: none;
+    }
+}
+
+

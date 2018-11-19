@@ -1,0 +1,133 @@
+body {
+	font-family: 微軟正黑體, "Microsoft JhengHei", Helvetica, Arial, sans-serif;
+	background: url(../images/bg.jpg) no-repeat,-webkit-linear-gradient(left, #0e4861 0%,#00174c 27%,#00174c 74%,#0e4861 100%);
+	background-attachment: fixed;
+	background-size: 100%;
+	background-color: #052854;
+}
+
+/* define bootstrap 5 columns */.col-xs-1-5,
+.col-sm-1-5,
+.col-md-1-5,
+.col-lg-1-5 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-xs-1-5 {
+    width: 20%;
+    float: left;
+}
+
+@media (min-width: 768px) {
+.col-sm-1-5 {
+        width: 20%;
+        float: left;
+    }
+}
+@media (min-width: 992px) {
+    .col-md-1-5 {
+        width: 20%;
+        float: left;
+    }
+}
+@media (min-width: 1200px) {
+    .col-lg-1-5 {
+        width: 20%;
+        float: left;
+    }
+}
+
+.navbar-default .navbar-collapse {
+    padding: 0;
+    width: 100%;
+    margin: 0;
+}
+
+.navbar > .container {
+	max-width: 1280px;
+    position: relative;
+
+}
+.navbar-default .navbar-brand {
+    padding: 11px 0;
+    height: 45px;
+}
+
+.navbar {
+	background-image: url(../images/header_bg.png);
+	border: none;
+    background-position: top;
+    background-color: #ffffff;
+	border-radius: 0px;
+	margin-bottom: 0;
+}
+
+.nav.navbar-nav {
+	width: 100%;
+	margin: 0;
+}
+
+.nav.navbar-nav > li > a {
+	font-size: 18px;
+	text-align: center;
+}
+
+.active > a {
+	background-image: none !important;
+	box-shadow: none !important;
+	background-color: transparent !important;
+	color: #2a7e9a !important;
+	font-weight: bold;
+	padding: 15px 0 !important;
+}
+
+.active:after {
+	content: '';
+	height: 4px;
+	background-color: #2a7e9a;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.navbar-header .navbar-toggle {
+    margin: 10px 0;
+}
+.font-setting {
+    position: absolute;
+    top: 12px;
+    right: 40px;
+    font-size: 17px;
+    color: #3d3d3d;
+}
+.jfontsize-button.link-button {
+    border: 1px solid #3d3d3d;
+    padding: 3px 6px;
+    margin-left: 13px;
+    border-radius: 5px;
+    color: #3d3d3d;
+}
+.jfontsize-button.link-button:active, .jfontsize-button.link-button:hover {
+    background: #434343;
+    color: #ffffff;
+}
+
+@media (max-width: 767px) {
+	.navbar-brand > img {
+	    width: 210px;
+	}
+	.navbar > .container {
+	    padding: 0 15px;
+	}
+	.navbar-header {
+	    margin: 0 !important;
+	}
+	.font-setting {
+	    left: 15px;
+	    top: 47px;
+	    font-size: 14px;
+	}
+}

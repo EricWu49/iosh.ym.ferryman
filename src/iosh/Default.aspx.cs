@@ -77,6 +77,7 @@ namespace iosh
                         Session.Add("UserID", myData.Rows[0]["UserID"].ToString());
                         Session.Add("UserName", myData.Rows[0]["UserName"].ToString());
                         Panel_Login.Visible = false;
+                        litScript.Text = "<script type='text/javascript'>$('#master-container').css('display', 'none');</script>";
                         Message.MsgShow(this.Page, "登入成功");
 
                         Panel myPanel = (Panel)ShareFunction.FindControlEx(Master, "UserPanel");
@@ -89,6 +90,10 @@ namespace iosh
                         if (myPanel!=null)
                         {
                             myPanel.Visible = true;
+                        }
+                        else
+                        {
+
                         }
                     }
                     else

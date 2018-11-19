@@ -1,0 +1,36 @@
+.container-ilosh {
+    max-width: 1200px;
+    padding: 0 15px;
+}
+.title2 {
+    padding-bottom: 0px;
+    margin-top: 13px;
+}
+.box1 {
+    padding: 0 15px;
+}
+
+.text_conputer {
+    font-size: 16px;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    padding: 10px;
+}
+.human_finish_img {
+    border: 1px solid #e5e5e5;
+    height: 383px;
+  	border-radius: 5px;
+}
+.human_finish_img > img {
+    height: 100%;
+    object-fit: contain;
+}
+.box-border-btm {
+    padding-bottom: 21px;
+    margin-bottom: 28px;
+}
+@media (max-width: 991px) {
+	.bottom_row.row {
+	    margin-top: 43px;
+	}
+}

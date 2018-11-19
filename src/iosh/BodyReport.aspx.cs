@@ -43,20 +43,6 @@ namespace iosh
 
             try
             {
-                //strSQL = "Select T0.QuestionID, T0.QTitle, T2.ResourceCode, T0.SelectValue as PainValue, IsNull(T1.SelectValue,2)-2 as EffectValue, "
-                //       + "        Case When IsNull(T1.SelectValue, 2) - 2 > 0 Then 3 Else "
-                //       + "             Case When T0.SelectValue < 2 Then 1 When T0.SelectValue < 4 Then 2 Else 3 End End as PainLevel "
-                //       + "From "
-                //       + "  (Select QuestionID, QTitle, SelectValue "
-                //       + "  From BodyData "
-                //       + "  Where PaperID = @ID And QuestionID In "
-                //       + "      (Select QuestionID From Question Where SurveyID = @SID And PageNo = 2)) T0 "
-                //       + "  Left Join "
-                //       + "    (Select Q.ParentID, B.SelectValue "
-                //       + "    From BodyData B Join Question Q On B.QuestionID = Q.QuestionID "
-                //       + "    Where B.PaperID = @ID And B.QuestionID In "
-                //       + "            (Select QuestionID From Question Where SurveyID = @SID And PageNo = 3)) T1 On T0.QuestionID = T1.ParentID "
-                //       + "  Join BodySuggest T2 On T0.QuestionID = T2.QuestionID";
                 strSQL = "Select T0.QuestionID, T0.QTitle, T2.ResourceCode, T0.SelectValue as PainValue, IsNull(T1.SelectValue,2)-2 as EffectValue, "
                        + "        Case When IsNull(T1.SelectValue, 2) - 2 > 0 Then 3 Else "
                        + "             Case When T0.SelectValue < 2 Then 1 When T0.SelectValue < 4 Then 2 Else 3 End End as PainLevel, T0.SelectValue as PainValue "
@@ -431,48 +417,51 @@ namespace iosh
                     }
 
                     // 依據部位，產出衛教影片連結
-                    // 挑出衛教人員所設定的影片
-                    strSQL = "Select A.Code, A.VideoName, A.Description, A.YoutubeID " +
-                             "From BodyResource A Join PaperResource B On A.Code=B.ResourceCode " +
-                             "Where B.PaperID=@PID And B.PositionCode = @Code " +
-                             "Order By A.Code";
-                    DB.AddSqlParameter("@PID", Convert.ToInt64(ViewState["PaperID"]));
-                    DB.AddSqlParameter("@Code", strCode);
-                    dtSuggest = DB.GetDataTable(strSQL);
+                    // 2018/11/17 全面更換影片，為不影響舊系統邏輯，暫不更動舊資料，改取新資料表
+                    dtResource = GetResourceData(DB, strCode);
+                     
+                    //// 挑出衛教人員所設定的影片
+                    //strSQL = "Select A.Code, A.VideoName, A.Description, A.YoutubeID " +
+                    //         "From BodyResource A Join PaperResource B On A.Code=B.ResourceCode " +
+                    //         "Where B.PaperID=@PID And B.PositionCode = @Code " +
+                    //         "Order By A.Code";
+                    //DB.AddSqlParameter("@PID", Convert.ToInt64(ViewState["PaperID"]));
+                    //DB.AddSqlParameter("@Code", strCode);
+                    //dtSuggest = DB.GetDataTable(strSQL);
 
-                    // 挑出各部位的所有衛教影片
-                    if (intRiskIndex == 1 || intRiskIndex == 5)
-                    {
-                        // 極低度風險
-                        strSQL = "Select A.Code, A.VideoName, A.Description, A.YoutubeID " +
-                                 "From BodyResource A Join BodyRule B On A.Code=B.ResourceCode " +
-                                 "Where B.PositionCode = @Code " +
-                                 "Order By B.RuleID";
-                        DB.AddSqlParameter("@Code", "00");
-                    }
-                    else
-                    {
-                        strSQL = "Select Distinct A.Code, A.VideoName, A.Description, A.YoutubeID " +
-                                 "From BodyResource A Left Join BodyRule B On A.Code=B.ResourceCode " +
-                                 "Where A.Code=@Code OR B.PositionCode=@Code OR " +
-                                        "B.PositionCode In (Select PositionCode From BodyPosition Where ParentCode=@Code) " +
-                                 "Order By A.Code";
-                        DB.AddSqlParameter("@Code", strCode);
-                    }
-                    dtResource = DB.GetDataTable(strSQL);
+                    //// 挑出各部位的所有衛教影片
+                    //if (intRiskIndex == 1 || intRiskIndex == 5)
+                    //{
+                    //    // 極低度風險
+                    //    strSQL = "Select A.Code, A.VideoName, A.Description, A.YoutubeID " +
+                    //             "From BodyResource A Join BodyRule B On A.Code=B.ResourceCode " +
+                    //             "Where B.PositionCode = @Code " +
+                    //             "Order By B.RuleID";
+                    //    DB.AddSqlParameter("@Code", "00");
+                    //}
+                    //else
+                    //{
+                    //    strSQL = "Select Distinct A.Code, A.VideoName, A.Description, A.YoutubeID " +
+                    //             "From BodyResource A Left Join BodyRule B On A.Code=B.ResourceCode " +
+                    //             "Where A.Code=@Code OR B.PositionCode=@Code OR " +
+                    //                    "B.PositionCode In (Select PositionCode From BodyPosition Where ParentCode=@Code) " +
+                    //             "Order By A.Code";
+                    //    DB.AddSqlParameter("@Code", strCode);
+                    //}
+                    //dtResource = DB.GetDataTable(strSQL);
 
-                    // 若衛教人員有設定資料，將重複的影片剔除
-                    if (dtSuggest != null)
-                    {
-                        for (int j=0; j< dtSuggest.Rows.Count; j++)
-                        {
-                            drResources= dtResource.Select("Code='" + dtSuggest.Rows[j]["Code"].ToString() + "'");
-                            if (drResources.Length>0)
-                            {
-                                dtResource.Rows.Remove(drResources[0]);
-                            }
-                        }
-                    }
+                    //// 若衛教人員有設定資料，將重複的影片剔除
+                    //if (dtSuggest != null)
+                    //{
+                    //    for (int j=0; j< dtSuggest.Rows.Count; j++)
+                    //    {
+                    //        drResources= dtResource.Select("Code='" + dtSuggest.Rows[j]["Code"].ToString() + "'");
+                    //        if (drResources.Length>0)
+                    //        {
+                    //            dtResource.Rows.Remove(drResources[0]);
+                    //        }
+                    //    }
+                    //}
 
                     if (dtResource!=null)
                     {
@@ -481,7 +470,7 @@ namespace iosh
                                 + "         <img src = \"object/images/" + strCode + ".jpg\" alt=\"" + dtResource.Rows[0]["Description"].ToString() + "部位圖\" />" + Environment.NewLine
                                 + "      </div>" + Environment.NewLine
                                 + "      <div class=\"col-xs-12 col-sm-6 col-md-8 col-lg-9\">" + Environment.NewLine
-                                + ResourceList(dtSuggest, dtResource, intRiskIndex)
+                                + ResourceListEx(dtResource, intRiskIndex)
                                 + "      </div>" + Environment.NewLine
                                 + "   </div>" + Environment.NewLine;
                     }
@@ -570,6 +559,32 @@ namespace iosh
             }
         }
 
+        private DataTable GetResourceData(DBClass DB, string positionCode)
+        {
+            string strSQL = "";
+            DataTable myData;
+
+            try
+            {
+                strSQL = "Select  A.ResourceCode as Code, A.ResourceName as VideoName, A.Description, A.ResourcePath as YoutubeID " +
+                         "From EvaluateResource A Join BodyRuleEx B On A.ResourceCode=B.ResourceCode " +
+                         "Where B.PositionCode=@Code " +
+                         "Order By B.OrderNo";
+                DB.AddSqlParameter("@Code", positionCode);
+                myData = DB.GetDataTable(strSQL);
+                if (DB.DBErrorMessage!="")
+                {
+                    ShareFunction.PutLog("GetResourceData", DB.DBErrorMessage);
+                }
+                return myData;
+            }
+            catch (Exception ex)
+            {
+                ShareFunction.PutLog("GetResourceData", ex.Message );
+                return null;
+            }
+        }
+
         protected void btnReturn_Click(object sender, EventArgs e)
         {
             if (ViewState["PaperID"] != null)
@@ -598,6 +613,13 @@ namespace iosh
             litResultList.Text = strContent;
         }
 
+        /// <summary>
+        /// 舊版程式
+        /// </summary>
+        /// <param name="dtSuggest"></param>
+        /// <param name="myData"></param>
+        /// <param name="RiskIndex"></param>
+        /// <returns></returns>
         private string ResourceList(DataTable dtSuggest, DataTable myData, int RiskIndex)
         {
             string strReturn = "";
@@ -658,5 +680,58 @@ namespace iosh
             strReturn = "<div class=\"row\">" + strReturn + "</div>";
             return strReturn;
         }
+
+        /// <summary>
+        /// 新版程式
+        /// </summary>
+        /// <param name="myData"></param>
+        /// <param name="RiskIndex"></param>
+        /// <returns></returns>
+        private string ResourceListEx(DataTable myData, int RiskIndex)
+        {
+            string strReturn = "";
+            string strStyle = "";
+            int i = 0;
+
+            // 設定資源按鈕樣式
+            switch (RiskIndex)
+            {
+                case 1:
+                case 5:
+                    strStyle = "btn-info";
+                    break;
+                case 2:
+                    strStyle = "btn-success";
+                    break;
+                case 3:
+                    strStyle = "btn-warning";
+                    break;
+                case 4:
+                case 6:
+                    strStyle = "btn-danger";
+                    break;
+            }
+
+            if (myData != null)
+            {
+                strReturn += "<div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-info\">" + Environment.NewLine;
+                strReturn += "相關的衛教影片：" + Environment.NewLine;
+                strReturn += "   </div>" + Environment.NewLine;
+                if (myData.Rows.Count > 0)
+                {
+                    for (i = 0; i < myData.Rows.Count; i++)
+                    {
+                        strReturn += "   <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-6\" style=\"height:50px;\">" + Environment.NewLine;
+                        strReturn += "         <a class=\"btn " + strStyle + "\" onclick = \"GetVedio('" + myData.Rows[i]["YoutubeID"].ToString() + "')\" href = \"#exampleModal\" data-toggle = \"modal\" role=\"button\" >" + Environment.NewLine;
+                        strReturn += "            [影片] : " + myData.Rows[i]["Description"].ToString() + Environment.NewLine;
+                        strReturn += "         </a>" + Environment.NewLine;
+                        strReturn += "   </div>" + Environment.NewLine;
+                    }
+                }
+            }
+            strReturn = "<div class=\"row\">" + strReturn + "</div>";
+            return strReturn;
+        }
+
     }
 }

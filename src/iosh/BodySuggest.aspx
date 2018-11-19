@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="BodySuggest.aspx.cs" Inherits="iosh.BodySuggest" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="server">
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css" />
-    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bodysuggest.css"/>
+     <script type="text/javascript" src="js/jquery-ui.min.js"></script>
     <style>
         /* 讓每一個網格的高度相同 */
         .row-flex {
@@ -23,6 +24,13 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContentPlaceHolder" runat="server">
+    <div class="title1 row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div>
+                <h2>自評結果</h2>
+            </div>
+        </div>
+    </div>
     <asp:Repeater ID="Repeater1" runat="server" OnItemDataBound="Repeater1_ItemDataBound">
         <HeaderTemplate>
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -30,7 +38,7 @@
         <ItemTemplate>
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id='<%#  Eval("EvaluateCode", "heading-{0}") %>'>
-                    <h4 class="panel-title">
+                    <h4 class="title2 panel-title">
                         <a role="button" data-toggle="collapse" data-parent="#accordion" href='<%#  Eval("EvaluateCode", "#collapse-{0}") %>' aria-expanded="true" aria-controls='<%#  Eval("EvaluateCode", "#collapse-{0}") %>'>
                             <%# Eval("QTitle") %>
                         </a>

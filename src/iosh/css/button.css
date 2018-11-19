@@ -1,0 +1,308 @@
+/*上一頁btn*/
+.btn-pre > button {
+    height: 48px;
+    border-radius: 24px;
+    border: 2px solid #f69b0d;
+    font-size: 20px;
+    text-shadow: none;
+    background: #ffffff;
+    box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.2);
+    background-color: white;
+    float: none;
+    margin: 0 auto;
+    color: #f69b0d;
+	font-weight: bold;
+}
+.btn-success:active,.btn-success:focus {
+    background-color: #ffffff;
+    border-color: #ec971a;
+    color: #ec971a;
+}
+.btn-pre:after {
+    content: "";
+    width: 15px;
+    height: 16px;
+    background-image: url(../images/btn_icon_pre.svg);
+    background-size: 15px 16px;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: calc( 50% - 67px );
+    top: 16px;
+}
+.btn-pre > button:hover {
+    background-color: #ffffff;
+    background-image: none;
+    color: #fb9300;
+    border-color: #fb9300;
+}
+/*下一頁btn*/
+.btn-next > input {
+    height: 48px;
+    border-radius: 24px;
+    border: none;
+    font-size: 20px;
+    text-shadow: none;
+    background: -webkit-linear-gradient(left, #f69b0d 0%,#febf29 100%);
+    background: -ms-linear-gradient(left, #f69b0d 0%,#febf29 100%);
+    box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.2);
+    background-color: white;
+    float: none;
+    margin: 0 auto;
+	font-weight: bold;
+}
+.btn-primary:active {
+    background: -webkit-linear-gradient(left, #f69b0d 0%,#febf29 100%);
+    background: -ms-linear-gradient(left, #f69b0d 0%,#febf29 100%);
+}
+.btn-next:after {
+    content: "";
+    width: 15px;
+    height: 16px;
+    background-image: url(../images/btn_icon_next.svg);
+    background-size: 15px 16px;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: calc( 50% - 67px );
+    top: 16px;
+}
+/*返回div*/
+.btn-back > input {
+    height: 48px;
+    border-radius: 24px;
+    border: 2px solid #f69b0d;
+    font-size: 20px;
+    text-shadow: none;
+    background: #ffffff;
+    box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.2);
+    background-color: white;
+    float: none;
+    margin: 0 auto;
+    color: #f69b0d;
+    font-weight: bold;
+    margin-bottom: 14px;
+}
+.btn-back > input:hover, .btn-back > input:focus {
+    background-color: #ffffff !important;
+    border-color: #f69b0d;
+    color: #f69b0d;
+    cursor: pointer;
+}
+.btn-back:after {
+    content: "";
+    width: 15px;
+    height: 16px;
+    background-image: url(../images/btn_icon_pre.svg);
+    background-size: 15px 16px;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: calc( 50% - 67px );
+    top: 16px;
+}
+.btn-pre > button:hover {
+    background-color: #ffffff;
+    background-image: none;
+    color: #fb9300;
+    border-color: #fb9300;
+}
+/*列印div*/
+.btn-print > a {
+    height: 48px;
+    border-radius: 24px;
+    border: none;
+    font-size: 20px;
+    text-shadow: none;
+    background: -webkit-linear-gradient(left, #f69b0d 0%,#febf29 100%);
+    background: -ms-linear-gradient(left, #f69b0d 0%,#febf29 100%);
+    box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.2);
+    background-color: white;
+    float: none;
+    margin: 0 auto;
+    font-weight: bold;
+    line-height: 36px;
+}
+.btn-primary:active {
+    background: -webkit-linear-gradient(left, #f69b0d 0%,#febf29 100%);
+    background: -ms-linear-gradient(left, #f69b0d 0%,#febf29 100%);
+}
+.btn-print:after {
+    content: "";
+    width: 20px;
+    height: 18px;
+    background-image: url(../images/btn_icon_print.svg);
+    background-size: 20px 18px;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: calc( 50% - 91px );
+    top: 15px;
+}
+/**************radiobtn**************/
+label.input_box {
+    margin-right: 11px !important;
+    margin-bottom: 14px;
+}
+label.radio_btn:hover {
+    cursor: pointer;
+}
+label.radio_btn:active {
+    box-shadow: inset 0px 2px 6px 0px rgba(0,0,0,0.2);
+}
+/*radio 未被選*/
+label.radio_btn {
+    border: 1px solid #c7c7c7;
+    border-radius: 21px;
+    height: 42px;
+    line-height: 42px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.2);
+    padding: 0 17px 0 37px;
+    font-size: 19px;
+    color: #000000;
+    font-weight: normal;
+    margin: 0 !important;
+    position: relative;
+}
+
+/*input隱藏*/
+label.input_box > input {
+    display: none;
+}
+
+/*input未選*/
+span.radioround {
+    position: absolute;
+    left: 14px;
+    top: 12px;
+    border-radius: 8px;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #b5b5b5;
+}
+/*input藍點*/
+span.radioround:after {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    border-radius: 8px;
+    width: 10px;
+    height: 10px;
+    background-color: #025c92;
+    display: none;
+}
+/*radio被選input換色*/
+label.input_box > input:checked+.radio_btn>span {
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+/*radio被選背景換色*/
+label.input_box > input:checked + .radio_btn {
+    background: -webkit-linear-gradient(left, #005a92 0%,#2a7e9a 100%);
+    background: -ms-linear-gradient(left, #005a92 0%,#2a7e9a 100%);
+    box-shadow: inset 0px 2px 6px 0px rgba(0,0,0,0.4);
+    color: #ffffff;
+}
+/*radio被選顯示藍點*/
+label.input_box > input:checked + .radio_btn > .radioround:after  {
+    display: block;
+}
+/**************radiobtn**************/
+
+/**************checkbox**************/
+label.input_box {
+    margin-right: 11px !important;
+    margin-bottom: 14px;
+}
+label.check_btn:hover {
+    cursor: pointer;
+}
+label.check_btn:active {
+    box-shadow: inset 0px 2px 6px 0px rgba(0,0,0,0.2);
+}
+/*check 未被選*/
+label.check_btn {
+    border: 1px solid #c7c7c7;
+    border-radius: 6px;
+    height: 42px;
+    line-height: 42px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.2);
+    padding: 0 17px 0 37px;
+    font-size: 19px;
+    color: #000000;
+    font-weight: normal;
+    margin: 0 !important;
+    position: relative;
+}
+/*input隱藏*/
+label.input_box > input {
+    display: none;
+}
+
+/*check未選*/
+span.checkround {
+    position: absolute;
+    left: 14px;
+    top: 12px;
+    border-radius: 3px;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #b5b5b5;
+}
+/*check藍勾*/
+span.checkround:after {
+    content: url(../images/input_check.svg);
+    position: absolute;
+    left: 0px;
+    top: -16px;
+    width: 13px;
+    display: none;
+}
+/*check被選input換色*/
+label.input_box > input:checked+.check_btn>span {
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+/*check被選背景換色*/
+label.input_box > input:checked + .check_btn {
+    background: -webkit-linear-gradient(left, #005a92 0%,#2a7e9a 100%);
+    background: -ms-linear-gradient(left, #005a92 0%,#2a7e9a 100%);
+    box-shadow: inset 0px 2px 6px 0px rgba(0,0,0,0.4);
+    color: #ffffff;
+}
+/*check被選顯示藍點*/
+label.input_box > input:checked + .check_btn > .checkround:after  {
+    display: block;
+}
+/**************checkboxn**************/
+
+/** Add For ASP.Net Server Control by Eric **/
+
+/* CheckBox & RadioButton */
+/* RadioButton 外觀樣式 */
+span.input_box {    
+    margin-right: 11px !important;
+    margin-bottom: 14px;
+    border: 1px solid #c7c7c7;
+    border-radius: 21px;
+    height: 42px;
+    line-height: 42px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.2);
+    padding: 5px 17px 5px 37px;
+    font-size: 19px;
+    color: #000000;
+    font-weight: normal;
+    /*margin: 0 !important;*/
+    position: relative;
+}
+/* RadioButton 文字前置間距 */
+span > label {
+    margin-left:5px;
+}
+/*radio被選背景換色*/
+.option-item .selected {
+    background: -webkit-linear-gradient(left, #005a92 0%,#2a7e9a 100%);
+    background: -ms-linear-gradient(left, #005a92 0%,#2a7e9a 100%);
+    box-shadow: inset 0px 2px 6px 0px rgba(0,0,0,0.4);
+    color: #ffffff;
+}
